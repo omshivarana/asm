@@ -1,0 +1,11 @@
+Route::get('/shankasamadhan',[ShankaSamadhanController::class,'shankasamadhan'])->name('shankasamadhan'); 
+Route::get('/shankasamadhancategory/{id}',[ShankaSamadhanController::class,'shankasamadhancategory'])->name('shankasamadhancategory');
+Route::get('/allshankasamadhanclips',[ShankaSamadhanController::class,'allshankasamadhanclips'])->name('allshankasamadhanclips');
+Route::get('/allshankasamadhanclipslisting',[ShankaSamadhanController::class,'allshankasamadhanclipslisting'])->name('allshankasamadhanclipslisting');
+Route::get('/askaquestion',[ShankaSamadhanController::class,'askaquestion'])->name('askaquestion');
+Route::post('/askaquestionstore',[ShankaSamadhanController::class,'askaquestionstore'])->name('askaquestionstore');
+Route::get('/bestofshankasamadhan',[ShankaSamadhanController::class,'bestofshankasamadhan'])->name('bestofshankasamadhan');
+Route::get('/bestofshankasamadhanlisting',[ShankaSamadhanController::class,'bestofshankasamadhanlisting'])->name('bestofshankasamadhanlisting');
+Route::get('/shankasamadhandetail/{id}/',[ShankaSamadhanController::class,'shankasamadhandetail'])->name('shankasamadhandetail');
+Route::get('/shankasamadhansearchforallclip',[ShankaSamadhanController::class,'shankasamadhansearchforallclip'])->name('shankasamadhansearchforallclip');
+Route::get('/shankasamadhansearchforbest',[ShankaSamadhanController::class,'shankasamadhansearchforbest'])->name('shankasamadhansearchforbest');

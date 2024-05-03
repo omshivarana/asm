@@ -1,0 +1,146 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\ShankaSamadhanCategory;
+use App\AddShankaSamadhan;
+use App\AskAQuestion;
+
+class ShankaSamadhanController extends Controller
+{
+    public function shankasamadhan(Request $request)
+    {
+        
+        $all_category=ShankaSamadhanCategory::all();
+        return view('Shanka_Samadhan.shanka_samadhan',compact('all_category'));
+    }
+
+    public function shankasamadhandetail($id)
+    {    
+        $all_add_shanka_samadhan=AddShankaSamadhan::find($id);
+        $paragraphs = explode("\n", $all_add_shanka_samadhan->solution);
+        return view('Shanka_Samadhan.shanka_samadhan_detail',compact('all_add_shanka_samadhan','paragraphs'));
+    }
+
+    public function shankasamadhancategory($id)
+    {
+        
+        $perPage = 6;
+        $page = request()->input('page', 1);
+        
+        $all_add_shanka_samadhan = AddShankaSamadhan::where('shanka_samadhan_categorys_id', $id)->paginate($perPage);
+        
+        return response()->json([
+            'msg' => 'success',
+            'all_add_shanka_samadhan' => $all_add_shanka_samadhan,
+            'paginator' => $all_add_shanka_samadhan->links()->toHtml(),
+        ]);
+
+    }
+
+    // public function shankasamadhansearchforcategory(Request $request,$id)
+    // {   
+    //     $perPage = 6;
+    //     $query = $request->input('query');
+    
+    //     // Query the database for matching records
+    //     $searchResults = AddShankaSamadhan::where('shanka_samadhan_categorys_id', $id)->where('title', 'like', '%' . $query . '%')->paginate($perPage);
+    //         dd($searchResults);
+    //     return response()->json([
+    //         'msg' => 'success',
+    //         'search_results' => $searchResults,
+    //         'paginator' => $searchResults->links()->toHtml(),
+    //     ]);
+    // }
+
+
+    public function allshankasamadhanclips()
+    {
+        return view('Shanka_Samadhan.all_shanka_samadhan_clips');
+    }
+
+    public function allshankasamadhanclipslisting()
+    {
+        $perPage = 15;
+        $page = request()->input('page', 1);
+        
+        $all_shanka_samadhan_clip = AddShankaSamadhan::paginate($perPage);
+        
+        return response()->json([
+            'msg' => 'success',
+            'all_shanka_samadhan_clip' => $all_shanka_samadhan_clip,
+            'paginator' => $all_shanka_samadhan_clip->links()->toHtml(),
+        ]);
+    }
+
+    public function shankasamadhansearchforallclip(Request $request)
+    {   
+        $perPage = 15;
+        $query = $request->input('query');
+    
+        // Query the database for matching records
+        $searchResults = AddShankaSamadhan::where('title', 'like', '%' . $query . '%')->paginate($perPage);
+    
+        return response()->json([
+            'msg' => 'success',
+            'search_results' => $searchResults,
+            'paginator' => $searchResults->links()->toHtml(),
+        ]);
+        
+    }
+   
+    public function askaquestion()
+    {
+        return view('Shanka_Samadhan.ask_a_question');
+    }
+    public function askaquestionstore(Request $request)
+    {       
+        // dd($request);
+        AskAQuestion::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'country'=>$request->country,
+            'state'=>$request->state,
+            'city'=>$request->city,
+            'question'=>$request->question,
+        ]);
+            return response()->json([
+                'msg'=>'sucessfull Asked Question',
+            ]);
+    }
+
+    public function bestofshankasamadhan()
+    {   
+        return view('Shanka_Samadhan.best_of_shanka_samadhan');
+    }
+
+    public function bestofshankasamadhanlisting()
+    {
+        $perPage = 15;
+        $page = request()->input('page', 1);
+        $all_best_shanka_samadhan=AddShankaSamadhan::where('status','=','1')->paginate($perPage);
+        return response()->json([
+            'all_best_shanka_samadhan'=>$all_best_shanka_samadhan,
+            'msg'=>'sucess',
+            'paginator' => $all_best_shanka_samadhan->links()->toHtml(),
+        ]);
+    }
+
+    public function shankasamadhansearchforbest(Request $request)
+    {
+        $perPage = 15;
+        $query = $request->input('query');
+    
+        // Query the database for matching records
+        $searchResults = AddShankaSamadhan::where('status', 1)->where('title', 'like', '%' . $query . '%')->paginate($perPage);
+    
+        return response()->json([
+            'msg' => 'success',
+            'search_results' => $searchResults,
+            'paginator' => $searchResults->links()->toHtml(),
+        ]);
+    }
+
+}

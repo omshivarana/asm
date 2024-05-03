@@ -1,0 +1,327 @@
+@extends('layout.master')
+
+<HEAD>
+    <style>
+        .pagination button {
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: #f7f7f7;
+            color: #777;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .activeTab {
+            background-color: #7E4555 !important;
+            color: white !important;
+        }
+
+        .pagination button:hover {
+            background-color: #7E4555;
+        }
+
+        .pagination .butttonactive {
+            background-color: #db4242;
+            color: white
+        }
+    </style>
+</HEAD>
+@section('shankasamadhan')
+    <!-- partial:partia/__subheader.html -->
+    <div class="sigma_subheader dark-overlay dark-overlay-2"
+        style="background-image: url(/@core/public/assets/img/biography/subheader.jpg)">
+
+        <div class="container">
+            <div class="sigma_subheader-inner">
+                <div class="sigma_subheader-text">
+                    <h1 class="heading">Shanka Samadhan</h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class=""><a class="btn-link" href="#">Home</a></li>
+                        <div> &ensp;
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_111_2968)">
+                                    <path
+                                        d="M6.95558 6.52787V4.27461C6.95558 3.87621 7.12133 3.49413 7.41637 3.21241C7.71142 2.9307 8.11158 2.77244 8.52883 2.77244C8.94608 2.77244 9.34624 2.9307 9.64129 3.21241C9.93633 3.49413 10.1021 3.87621 10.1021 4.27461V2.77244C10.1021 2.37404 10.2678 1.99195 10.5629 1.71024C10.8579 1.42853 11.2581 1.27026 11.6753 1.27026C12.0926 1.27026 12.4927 1.42853 12.7878 1.71024C13.0828 1.99195 13.2486 2.37404 13.2486 2.77244V5.0257C13.2486 4.6273 13.4143 4.24521 13.7094 3.9635C14.0044 3.68179 14.4046 3.52352 14.8218 3.52352C15.2391 3.52352 15.6392 3.68179 15.9343 3.9635C16.2293 4.24521 16.3951 4.6273 16.3951 5.0257V14.0387L17.2242 12.0619C17.4331 11.5624 17.8186 11.1486 18.3138 10.8923C18.809 10.636 19.3826 10.5534 19.9349 10.6588C20.1658 10.703 20.3829 10.7975 20.5693 10.9347C20.7558 11.072 20.9067 11.2485 21.0101 11.4505C21.1136 11.6524 21.1669 11.8744 21.166 12.0993C21.1651 12.3241 21.1099 12.5457 21.0047 12.7469L17.9683 18.5453L17.9211 18.7255C17.0244 22.1505 13.7992 24.554 10.1021 24.554C8.43307 24.554 6.83242 23.9209 5.65226 22.794C4.47209 21.6672 3.80908 20.1389 3.80908 18.5453V6.52787C3.80908 6.12947 3.97483 5.74739 4.26988 5.46567C4.56492 5.18396 4.96508 5.0257 5.38233 5.0257C5.79958 5.0257 6.19974 5.18396 6.49479 5.46567C6.78983 5.74739 6.95558 6.12947 6.95558 6.52787ZM6.95558 6.52787V12.5366M13.2486 3.52352V12.5366M10.1021 3.52352V11.0344"
+                                        stroke="#777777" stroke-width="1.38801" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.1849 17.6976C13.1849 19.4224 11.7866 20.8206 10.0618 20.8206C8.33702 20.8206 6.9388 19.4224 6.9388 17.6976C6.9388 15.9728 8.33702 14.5745 10.0618 14.5745C11.7866 14.5745 13.1849 15.9728 13.1849 17.6976ZM14.5729 17.6976C14.5729 20.189 12.5532 22.2086 10.0618 22.2086C7.57045 22.2086 5.55078 20.189 5.55078 17.6976C5.55078 15.2062 7.57045 13.1865 10.0618 13.1865C12.5532 13.1865 14.5729 15.2062 14.5729 17.6976ZM10.1615 15.2405C9.98611 15.2405 9.84395 15.3826 9.84395 15.558V16.8814C9.78811 16.901 9.73464 16.9257 9.68409 16.9548L8.81328 16.084C8.68929 15.96 8.48826 15.96 8.36426 16.084C8.24027 16.208 8.24027 16.4091 8.36426 16.5331L9.27009 17.4389C9.26701 17.4469 9.26405 17.4549 9.26119 17.463H7.9386C7.76325 17.463 7.62109 17.6052 7.62109 17.7805C7.62109 17.9559 7.76325 18.098 7.9386 18.098H9.26128C9.2808 18.1532 9.30526 18.2061 9.33414 18.2561L8.36338 19.2269C8.23939 19.3509 8.23939 19.5519 8.36338 19.6759C8.48737 19.7999 8.68841 19.7999 8.8124 19.6759L9.81831 18.67C9.82605 18.6729 9.83385 18.6758 9.84169 18.6786V20.003C9.84169 20.1784 9.98384 20.3206 10.1592 20.3206C10.3345 20.3206 10.4767 20.1784 10.4767 20.003V18.6788C10.4848 18.676 10.4929 18.673 10.501 18.6699L11.507 19.676C11.631 19.8 11.8321 19.8 11.9561 19.676C12.08 19.552 12.08 19.3509 11.9561 19.227L10.9851 18.256C11.0139 18.206 11.0384 18.1531 11.0579 18.0979H12.3817C12.5571 18.0979 12.6992 17.9558 12.6992 17.7804C12.6992 17.605 12.5571 17.4629 12.3817 17.4629H11.0579C11.0552 17.4554 11.0525 17.4479 11.0496 17.4405L11.9569 16.5332C12.0809 16.4092 12.0809 16.2081 11.9569 16.0841C11.8329 15.9601 11.6319 15.9601 11.5079 16.0841L10.6364 16.9556C10.5866 16.9268 10.5339 16.9023 10.479 16.8828V15.558C10.479 15.3826 10.3368 15.2405 10.1615 15.2405Z"
+                                        fill="#777777" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_111_2968">
+                                        <rect width="25.4004" height="25.4004" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            &ensp;
+                        </div>
+                        <li class="breadcrumb-item active" aria-current="page">All Shanka Samadhan Clips</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+
+    <!-- Search Widget Start -->
+    <div class="container">
+        <div class="section">
+            <div class="sidebar-widget widget-search mt-4">
+                <h5 class="widget-title">Search Shanka</h5>
+                {{-- <form action="{{ route('shankasamadhansearch') }}" method="GET"> --}}
+                    <div class="sigma_search-adv-input">
+                        <input type="text" class="form-control" placeholder="Search Shanka" name="query" value=""
+                            id="query">
+                        <button type="button" name="button" onclick="search()"><i class="fa fa-search"></i></button>
+                    </div>
+                {{-- </form> --}}
+            </div>
+        </div>
+    </div>
+    <!-- Search Widget End -->
+
+    {{-- Dynamic CategoryWise Data Listing Start --}}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12"> <!-- This column takes up 70% of the container -->
+                    <div>
+                        <div class="sidebar-widget widget-categories">
+                            <div class="section section-padding pt-0">
+                                <div class="container">
+                                    <div class="section-title text-center">
+                                    </div>
+                                    <div class="row sigma_broadcast-video all_data" id="categorywisedatalisting">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Dynamic CategoryWise Data Listing Start --}}
+
+
+
+
+    {{-- Javascript Function for categorywise Listing data and pagination  through AJAX Start --}}
+    <script>
+        function nextPage(id, currentPage) {
+            const nextPage = currentPage + 1; // Calculate the next page number
+            categorywisedatalisting(id, nextPage);
+        }
+
+        function prevPage(id, currentPage) {
+            const prevPage = currentPage - 1; // Calculate the previous page number
+            categorywisedatalisting(id, prevPage);
+        }
+
+        function categorywisedatalisting(id, page = 1) {
+
+
+            $.ajax({
+                type: 'GET',
+                url: '/allshankasamadhanclipslisting/',
+                data: {
+                    page: page
+                },
+                success: function(resp) {
+                    console.log(resp.all_shanka_samadhan_clip);
+                    const all_shanka_samadhan_clip = resp.all_shanka_samadhan_clip.data;
+
+                    $('#categorywisedatalisting').html("");
+                    all_shanka_samadhan_clip.forEach((item) => {
+                        const newDiv = document.createElement('div');
+                        newDiv.classList.add("col-lg-4", "col-sm-12", "mb-30")
+                        newDiv.innerHTML = `
+             <div class="sigma_video-popup-wrap"></div>
+             <h6 class="mb-0 mt-3">${item.title}</h6>
+             <a href="/shankasamadhandetail/${item.id}">
+                 <span class="text-center">read more</span>  
+             </a>
+         `;
+                        document.getElementById("categorywisedatalisting").appendChild(newDiv);
+                        console.log(page);
+                    });
+
+                    // Add pagination buttons
+                    const currentPage = resp.all_shanka_samadhan_clip.current_page;
+                    const lastPage = resp.all_shanka_samadhan_clip.last_page;
+
+                    const paginationContainer = document.createElement('div');
+                    paginationContainer.classList.add('pagination');
+
+
+                    const prevButton = createButton('<', 'prev-button', "first");
+                    prevButton.addEventListener('click', function() {
+                        prevPage(id, currentPage);
+                    });
+                    paginationContainer.appendChild(prevButton);
+
+
+                    for (let i = 1; i <= lastPage; i++) {
+                        const pageButton = createButton(i, 'page-button', i);
+                        pageButton.addEventListener('click', function() {
+                            categorywisedatalisting(id, i);
+                        });
+                        paginationContainer.appendChild(pageButton);
+                    }
+
+
+                    const nextButton = createButton('>', 'next-button', 'last');
+                    nextButton.addEventListener('click', function() {
+                        nextPage(id, currentPage);
+                    });
+                    paginationContainer.appendChild(nextButton);
+
+
+                    document.body.appendChild(paginationContainer);
+
+                    function createButton(text, className, id) {
+                        const button = document.createElement('button');
+                        button.textContent = text;
+                        button.classList.add(className);
+                        button.id = id;
+                        return button;
+                    }
+                    document.getElementById("categorywisedatalisting").appendChild(paginationContainer);
+                    document.getElementById(page).classList.add('butttonactive');
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        categorywisedatalisting();
+    </script>
+    {{-- Javascript Function for categorywise Listing data and pagination through AJAX End --}}
+
+
+    {{-- javascript fuction for search the Data categrorywise  throuth AJAX Start --}}
+    <script>
+        // JavaScript
+        // function search() {
+        //     const searchTerm = document.getElementById('searchInput').value.toLowerCase(); // Get the search term
+        //     const items = document.querySelectorAll('#categorywisedatalisting h6'); // Select all titles
+        //     items.forEach(item => {
+        //         const title = item.textContent.toLowerCase();
+        //         if (title.includes(searchTerm)) {
+        //             item.parentElement.style.display = 'block'; // Show if title matches search term
+        //         } else {
+        //             item.parentElement.style.display = 'none'; // Hide if title doesn't match
+        //         }
+        //     });
+        // }
+    </script>
+    {{-- javascript fuction for search the Data categrorywise  throuth AJAX End --}}
+
+
+
+
+    {{-- javascript fuction for search the Data categrorywise  throuth AJAX Start --}}
+    <script>
+
+        function nextPage(id, currentPage) {
+            const nextPage = currentPage + 1; // Calculate the next page number
+            search(id, nextPage);
+        }
+
+        function prevPage(id, currentPage) {
+            const prevPage = currentPage - 1; // Calculate the previous page number
+            search(id, prevPage);
+        }
+
+        function search(id, page = 1) {
+            const queryElement = document.getElementById("query");
+            
+            if (!queryElement) {
+                console.error("Element with id 'query' not found.");
+                return;
+            }
+
+            const query = queryElement.value;
+
+            $.ajax({
+                type: 'GET',
+                url: '/shankasamadhansearchforallclip/',
+                data: {
+                    page: page,
+                    query: query,
+                },
+                success: function(resp) {
+                    console.log(resp.search_results);
+                    const search_results = resp.search_results.data;
+
+                    $('#categorywisedatalisting').html("");
+                    search_results.forEach((item) => {
+                        const newDiv = document.createElement('div');
+                        newDiv.classList.add("col-lg-4", "col-sm-12", "mb-30")
+                        newDiv.innerHTML = `
+                            <div class="sigma_video-popup-wrap"></div>
+                            <h6 class="mb-0 mt-3">${item.title}</h6>
+                            <a href="/shankasamadhandetail/${item.id}">
+                                <span class="text-center">read more</span>  
+                            </a>
+                        `;
+                        document.getElementById("categorywisedatalisting").appendChild(newDiv);
+                        console.log(page);
+                    });
+
+                    // Add pagination buttons
+                    const currentPage = resp.search_results.current_page;
+                    const lastPage = resp.search_results.last_page;
+
+                    const paginationContainer = document.createElement('div');
+                    paginationContainer.classList.add('pagination');
+
+                    const prevButton = createButton('<', 'prev-button', "first");
+                    prevButton.addEventListener('click', function() {
+                        prevPage(id, currentPage);
+                    });
+                    paginationContainer.appendChild(prevButton);
+
+                    for (let i = 1; i <= lastPage; i++) {
+                        const pageButton = createButton(i, 'page-button', i);
+                        pageButton.addEventListener('click', function() {
+                            search(id, i);
+                        });
+                        paginationContainer.appendChild(pageButton);
+                    }
+                    const nextButton = createButton('>', 'next-button', 'last');
+                    nextButton.addEventListener('click', function() {
+                        nextPage(id, currentPage);
+                    });
+                    paginationContainer.appendChild(nextButton);
+                    
+
+                    document.body.appendChild(paginationContainer);
+
+        function createButton(text, className, id) {
+            const button = document.createElement('button');
+            button.textContent = text;
+            button.classList.add(className);
+            button.id = id;
+            return button;
+        }
+        document.getElementById("categorywisedatalisting").appendChild(paginationContainer);
+        document.getElementById(page).classList.add('butttonactive');
+        },
+        error: function(xhr, status, error) {
+        console.log(error);
+        }
+        });
+        }
+    </script>
+
+    {{-- javascript fuction for search the Data categrorywise  throuth AJAX Start --}}
+@endsection
